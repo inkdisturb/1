@@ -271,7 +271,7 @@ function drawParticles(){
 
 // ==================== CHARACTER RENDERER ====================
 // Detailed character drawing with armor, weapons, proportions
-function drawCharacter(cx,cy,f,hp,maxHp,isP,state,combo,face,animFrame,hurtT,blocking,atkType,colorSet){
+function drawCharacter(cx,cy,hp,maxHp,isP,state,combo,face,animFrame,hurtT,blocking,atkType,colorSet){
   X.save();
   X.translate(cx,cy);X.scale(face,1);
   const bob=(state==='idle')?Math.sin(Date.now()*0.004)*2:0;
