@@ -298,6 +298,14 @@ function drawCharacter(cx,cy,hp,maxHp,isP,state,combo,face,animFrame,hurtT,block
 
   // === LEGS ===
   const legW=10,legH=28;
+  // Leg positions for different attacks
+  let lLegRot=0,rLegRot=0;
+  if(state==='walk'){lLegRot=Math.sin(animFrame*0.15)*0.5;rLegRot=-lLegRot}
+  else if(state==='kick'){lLegRot=-0.3;rLegRot=1.3}
+  else if(state==='spinKick'){lLegRot=0.8;rLegRot=-0.8}
+  else if(state==='sweep'){lLegRot=0;rLegRot=1.5}
+  else if(state==='heavy'){lLegRot=0.2;rLegRot=-0.2}
+  if(blocking){lLegRot=0.3;rLegRot=-0.3}
 
   // Boots
   const bootCol=cs.boot;
@@ -340,15 +348,6 @@ function drawCharacter(cx,cy,hp,maxHp,isP,state,combo,face,animFrame,hurtT,block
   else if(state==='walk'){lArmRot=Math.sin(animFrame*0.15)*0.4+0.3;rArmRot=-Math.sin(animFrame*0.15)*0.4-0.3}
   else if(state==='dash'){lArmRot=-1;rArmRot=-1}
   if(blocking){lArmRot=0.8;rArmRot=-0.8}
-
-  // Leg positions for different attacks
-  let lLegRot=0,rLegRot=0;
-  if(state==='walk'){lLegRot=Math.sin(animFrame*0.15)*0.5;rLegRot=-lLegRot}
-  else if(state==='kick'){lLegRot=-0.3;rLegRot=1.3}
-  else if(state==='spinKick'){lLegRot=0.8;rLegRot=-0.8} // Spinning
-  else if(state==='sweep'){lLegRot=0;rLegRot=1.5} // Low sweep
-  else if(state==='heavy'){lLegRot=0.2;rLegRot=-0.2}
-  if(blocking){lLegRot=0.3;rLegRot=-0.3}
 
   // Left arm (with gauntlet)
   X.save();X.translate(-20,torsoY+2+bob);X.rotate(lArmRot);
