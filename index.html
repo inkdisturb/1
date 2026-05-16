@@ -332,19 +332,19 @@ function buildSpriteSheet(cs, isPlayer){
       tg.addColorStop(0.5,hurt?'#fff':lighten(cs.pants,20));
       tg.addColorStop(1,hurt?'#fff':cs.pants);
       c.fillStyle=tg;
-      c.beginPath();c.roundRect(-7,0,14,len*0.55,4);c.fill();
+      c.fillRect(-7,0,14,len*0.55);
       // Knee joint
       c.fillStyle=hurt?'#fff':cs.armorDark;
       c.beginPath();c.arc(0,len*0.55,5,0,Math.PI*2);c.fill();
       // Shin
       c.fillStyle=hurt?'#fff':cs.pants;
-      c.beginPath();c.roundRect(-6,len*0.55,12,len*0.35,3);c.fill();
+      c.fillRect(-6,len*0.55,12,len*0.35);
       // Boot
       const bg=c.createLinearGradient(-8,len*0.88,8,len);
       bg.addColorStop(0,hurt?'#fff':cs.boot);
       bg.addColorStop(1,hurt?'#fff':darken(cs.boot,20));
       c.fillStyle=bg;
-      c.beginPath();c.roundRect(-8,len*0.88,16,12,[3,3,5,5]);c.fill();
+      c.fillRect(-8,len*0.88,16,12);
       // Boot strap
       c.fillStyle=hurt?'#fff':cs.accent;c.globalAlpha=0.5;
       c.fillRect(-8,len*0.92,16,2);c.globalAlpha=1;
@@ -391,7 +391,7 @@ function buildSpriteSheet(cs, isPlayer){
     c.fillStyle=beltG;c.fillRect(-18,ty+20,36,6);
     // Belt buckle
     c.fillStyle=hurt?'#fff':cs.accent;
-    c.beginPath();c.roundRect(-4,ty+20,8,6,2);c.fill();
+    c.fillRect(-4,ty+20,8,6);
 
     // Center gem with glow
     c.fillStyle=hurt?'#fff':cs.accent;
@@ -440,7 +440,7 @@ function buildSpriteSheet(cs, isPlayer){
       uaG.addColorStop(0,hurt?'#fff':cs.skin);
       uaG.addColorStop(1,hurt?'#fff':darken(cs.skin,15));
       c.fillStyle=uaG;
-      c.beginPath();c.roundRect(-5,0,10,20,4);c.fill();
+      c.fillRect(-5,0,10,20);
       // Elbow
       c.fillStyle=hurt?'#fff':cs.armorDark;
       c.beginPath();c.arc(0,20,4,0,Math.PI*2);c.fill();
@@ -450,14 +450,14 @@ function buildSpriteSheet(cs, isPlayer){
       gaG.addColorStop(0.5,hurt?'#fff':lighten(cs.gauntlet,12));
       gaG.addColorStop(1,hurt?'#fff':cs.gauntlet);
       c.fillStyle=gaG;
-      c.beginPath();c.roundRect(-6,22,12,14,4);c.fill();
+      c.fillRect(-6,22,12,14);
       // Gauntlet accent lines
       c.strokeStyle=hurt?'#fff':cs.accent;c.lineWidth=0.6;c.globalAlpha=0.35;
       c.beginPath();c.moveTo(-6,28);c.lineTo(6,28);c.stroke();
       c.beginPath();c.moveTo(-6,32);c.lineTo(6,32);c.stroke();c.globalAlpha=1;
       // Hand
       c.fillStyle=hurt?'#fff':cs.skin;
-      c.beginPath();c.roundRect(-4,36,8,6,3);c.fill();
+      c.fillRect(-4,36,8,6);
       c.restore();
     };
     c.save();c.rotate(R(pd[4]));
@@ -498,7 +498,7 @@ function buildSpriteSheet(cs, isPlayer){
 
     // Neck (visible)
     c.fillStyle=hurt?'#fff':cs.skin;
-    c.beginPath();c.roundRect(-5,hy+14,10,10,3);c.fill();
+    c.fillRect(-5,hy+14,10,10);
 
     // Head shape - more oval/natural
     const headG=c.createRadialGradient(-3,hy-3,3,0,hy+2,16);
@@ -537,7 +537,7 @@ function buildSpriteSheet(cs, isPlayer){
 
     // Headband
     c.fillStyle=hurt?'#fff':cs.accent;
-    c.beginPath();c.roundRect(-15,hy-5,30,4,2);c.fill();
+    c.fillRect(-15,hy-5,30,4);
     // Trailing band tails
     c.fillStyle=hurt?'#fff':cs.accent;c.globalAlpha=0.7;
     c.beginPath();
