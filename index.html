@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚔️ 暗影格斗</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+<canvas id="C" width="960" height="540"></canvas>
+
+<div id="hud">
+  <div class="hp-box">
+    <div class="hp-name left">⚔ 暗影武士</div>
+    <div class="hp-bar"><div class="hp-fill p" id="pHP"></div></div>
+    <div class="hp-text"><span id="pHPT">100</span> / <span id="pHPM">100</span></div>
+    <div class="ult-wrap"><div class="ult-bar"><div class="ult-fill" id="pUlt"></div></div>
+    <div class="ult-label"><span>⚡ 终极技</span><span id="pUltP">0%</span></div></div>
+  </div>
+  <div id="centerHUD"><div id="timerDisplay">99</div><div id="stageDisplay"></div></div>
+  <div class="hp-box">
+    <div class="hp-name right" id="enemyName">??? ☠</div>
+    <div class="hp-bar"><div class="hp-fill e" id="eHP"></div></div>
+    <div class="hp-text right"><span id="eHPT">100</span> / <span id="eHPM">100</span></div>
+  </div>
+</div>
+<div id="comboDisplay"></div>
+<div id="bossBar"><div class="boss-hp-name" id="bossName"></div><div class="boss-hp-bar"><div class="boss-hp-fill" id="bossHP"></div></div></div>
+
+<div class="overlay show" id="titleScreen">
+  <h1>暗影格斗</h1>
+  <div class="sub">SHADOW FIGHT</div>
+  <div class="menu-btn" onclick="showDiff()">⚔ 开始战斗</div>
+  <div class="menu-btn" onclick="showLb()">🏆 排行榜</div>
+</div>
+<div class="overlay" id="diffScreen">
+  <h2>— 选择难度 —</h2>
+  <div class="diff-btn easy" onclick="pickDiff(0)">🟢 见习 — 轻松入门</div>
+  <div class="diff-btn normal" onclick="pickDiff(1)">🟡 武者 — 正常挑战</div>
+  <div class="diff-btn hard" onclick="pickDiff(2)">🔴 暗影 — 硬核考验</div>
+  <div class="diff-btn insane" onclick="pickDiff(3)">⚫ 修罗 — 一命通关</div>
+</div>
+<div class="overlay" id="storyScreen">
+  <div class="story-chapter" id="storyChapter"></div>
+  <div class="story-text" id="storyText"></div>
+  <div class="story-continue">— 按任意键跳过 —</div>
+</div>
+<div class="overlay" id="stageIntro">
+  <div class="stage-num" id="siNum"></div>
+  <div class="stage-name" id="siName"></div>
+  <div class="stage-sub" id="siSub"></div>
+  <div class="stage-hint">准备战斗...</div>
+</div>
+<div class="overlay" id="bossIntro">
+  <div class="boss-emoji" id="biEmoji"></div>
+  <div class="boss-title" id="biName"></div>
+  <div class="boss-sub" id="biSub"></div>
+</div>
+<div class="overlay" id="stageSelect">
+  <h2 id="ssTitle"></h2>
+  <div class="sub" id="ssSub"></div>
+  <div id="ssScores"></div>
+  <div class="menu-btn" id="ssNextBtn" onclick="goNextStage()">▶ 下一关</div>
+  <div class="menu-btn" onclick="goTitle()">🏠 返回标题</div>
+</div>
+<div class="overlay" id="gameOverScreen">
+  <h2 id="goTitle"></h2>
+  <div class="detail" id="goDetail"></div>
+  <div class="stats" id="goStats"></div>
+  <div class="menu-btn" onclick="retryStage()">🔄 重试本关</div>
+  <div class="menu-btn" onclick="goTitle()">🏠 返回标题</div>
+</div>
+<div class="overlay" id="victoryScreen">
+  <h1>🏆 封印重铸</h1>
+  <div class="sub">暗影一族的使命，终于完成</div>
+  <div id="vScores"></div>
+  <div class="total-score" id="vTotal"></div>
+  <div class="menu-btn" onclick="goTitle()" style="margin-top:30px">🏠 返回标题</div>
+</div>
+<div class="overlay" id="lbScreen">
+  <h2>🏆 排行榜</h2>
+  <div class="lb-table" id="lbTable"></div>
+  <div class="menu-btn" onclick="goTitle()" style="margin-top:30px">返回</div>
+</div>
+</div>
+
+<div id="controlsBar">
+  <span>A/D</span> 移动 · <span>W</span> 跳跃 · <span>J</span> 拳击(连按3段) · <span>K</span> 踢击(连按3段) · <span>L</span> 格挡 · <span>↓+J</span> 重击 · <span>↓+K</span> 扫击<br>
+  <span>空中J/K</span> 空中攻击 · <span>Shift</span> 闪避 · <span>空格</span> 终极技 · <span>P</span> 暂停 · <span>任意键</span> 跳过剧情
+</div>
+
+<script src="js/audio.js"></script>
+<script src="js/state.js"></script>
+<script src="js/stages.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/fighter.js"></script>
+<script src="js/bosses.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/hit.js"></script>
+<script src="js/background.js"></script>
+<script src="js/gameflow.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
