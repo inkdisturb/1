@@ -1,7 +1,7 @@
 // ==================== BOSSES ====================
 class Boss extends Fighter{
   constructor(x,name,col){super(x,false,name);this.colors=col;this.spCD=0;this.bMax=100}
-  setup(si){const d=DIFF[diff];this.bMax=Math.floor((120+si*45)*d.hp);this.hp=this.bMax;this.maxHp=this.bMax}
+  setup(si){const d=DIFF[diff];this.bMax=Math.floor((400+si*120)*d.hp);this.hp=this.bMax;this.maxHp=this.bMax}
 }
 
 class BossFire extends Boss{
