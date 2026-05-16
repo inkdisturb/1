@@ -11,9 +11,9 @@ function showStageIntro(){hideAll();state='stageIntro';const st=STAGES[curStage]
 function showBossIntro(){hideAll();state='bossIntro';const st=STAGES[curStage];document.getElementById('biEmoji').textContent=st.emoji;document.getElementById('biName').textContent=st.boss;document.getElementById('biSub').textContent='"来吧，暗影的余孽"';document.getElementById('bossIntro').classList.add('show');_bossIntroTO=setTimeout(()=>startFight(),2200)}
 function startFight(){
   hideAll();state='fighting';paused=false;
-  player=new Fighter(200,true,'暗影武士');player.maxHp=100+curStage*12;player.hp=player.maxHp;player.colors=COLORS.player;
+  player=new Fighter(200,true,'暗影武士');player.maxHp=300+curStage*30;player.hp=player.maxHp;player.colors=COLORS.player;
   boss=createBoss(curStage);ai=new BossAI(boss);
-  stageScore={combo:0,maxCombo:0,hits:0,dmgTaken:0,time:0,parries:0};roundStart=Date.now();stageTimer=99;beamOn=false;vignetteAlpha=0;comboGlow=0;
+  stageScore={combo:0,maxCombo:0,hits:0,dmgTaken:0,time:0,parries:0};roundStart=Date.now();stageTimer=150;beamOn=false;vignetteAlpha=0;comboGlow=0;
   document.getElementById('enemyName').textContent=STAGES[curStage].emoji+' '+STAGES[curStage].boss;
   document.getElementById('bossBar').classList.add('show');document.getElementById('bossName').textContent=STAGES[curStage].boss;
   document.getElementById('hud').classList.add('show');document.getElementById('pHPM').textContent=player.maxHp;document.getElementById('eHPM').textContent=boss.bMax;
